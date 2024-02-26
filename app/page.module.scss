@@ -21,6 +21,10 @@
     padding-left: calc(var(--grid-unit) * 2 + (2 * var(--gutter)));
     padding-right: calc(var(--grid-unit) + (1 * var(--gutter)));
     margin-bottom: 4rem;
+
+    .readMore {
+      cursor: pointer;
+    }
   }
 }
 
@@ -36,6 +40,7 @@
     position: sticky;
     top: var(--top-margin);
     align-self: flex-start;
+
     ul {
       min-width: calc((var(--grid-unit) * 2) + (var(--gutter) * 1));
     }
