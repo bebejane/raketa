@@ -1,15 +1,16 @@
 import { create } from "zustand";
 import { shallow } from 'zustand/shallow';
 
-export type MenuState = 'inactive' | 'active' | 'hidden'
+export type LayoutState = 'default' | 'menu' | 'title' | 'project'
+
 export interface StoreState {
-  menuState: MenuState
-  setMenuState: (menuState: MenuState) => void,
+  layoutState: LayoutState
+  setLayoutState: (layoutState: LayoutState) => void,
 }
 
 const useStore = create<StoreState>((set) => ({
-  menuState: 'inactive',
-  setMenuState: (menuState: MenuState) => set((state) => ({ menuState })),
+  layoutState: 'default',
+  setLayoutState: (layoutState: LayoutState) => set((state) => ({ layoutState })),
 }));
 
 export { shallow, useStore };

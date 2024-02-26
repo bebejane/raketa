@@ -18,6 +18,10 @@ const routes: Routes = {
   "start": {
     typeName: "StartRecord",
     path: async (item, locale) => '/'
+  },
+  "about": {
+    typeName: "AboutRecord",
+    path: async (item, locale) => '/'
   }
 }
 

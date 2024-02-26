@@ -14,32 +14,40 @@ export type Props = {
 
 export default function Menu({ allProjects }: Props) {
 
-  const [menuState, setMenuState] = useStore(state => [state.menuState, state.setMenuState], shallow);
+  const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState], shallow);
 
   return (
     <ul className={s.projects}>
       {allProjects?.map(({ id, slug, title, description, collaborationWith, externalLink, year, visualPresentation }) =>
         <li id={slug} key={id}>
-          {menuState !== 'hidden' &&
-            <div className={s.meta}>
+          {layoutState !== 'project' &&
+            <div
+              className={cn(s.meta, s[layoutState])}
+              onMouseEnter={() => setLayoutState('title')}
+              onMouseLeave={() => setLayoutState('default')}
+            >
               <div className={s.wrapper}>
                 <h2>{title}</h2>
                 {year}
                 <h3>{collaborationWith}</h3>
                 {externalLink && <a href={externalLink}>{externalLink}</a>}
               </div>
-              <div className={s.fade}><div className={s.gradient}></div><div className={s.solid}></div></div>
+              <Fade hide={layoutState === 'title'} />
             </div>
           }
-          <div className={s.images}>
+          <div className={s.images} onMouseEnter={() => setLayoutState('default')}>
             {visualPresentation.map((block, idx) =>
               <Block key={idx} data={block} components={BlockComponets} />
             )}
           </div>
-          {menuState !== 'active' &&
-            <div className={cn(s.text, menuState === 'hidden' && s.active)} onMouseEnter={() => setMenuState('hidden')} onMouseLeave={() => setMenuState('inactive')}>
+          {layoutState !== 'menu' && layoutState !== 'title' &&
+            <div
+              className={cn(s.text, layoutState === 'project' && s.active)}
+              onMouseEnter={() => setLayoutState('project')}
+              onMouseLeave={() => setLayoutState('default')}
+            >
               <Content content={description} />
-              <Fade hide={menuState === 'hidden'} />
+              <Fade hide={layoutState === 'project'} />
             </div>
           }
         </li>
