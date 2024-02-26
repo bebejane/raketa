@@ -4,6 +4,7 @@ import s from './MediaRowBlock.module.scss'
 import cn from 'classnames'
 import React, { useRef, useState } from 'react'
 import { Image } from 'react-datocms'
+import VideoPlayer from '../VideoPlayer'
 
 export type LayoutProps = { data: MediaRowBlockRecord }
 
@@ -16,11 +17,10 @@ export default function MediaRowBlock({ data: { media } }: LayoutProps) {
 					<figure key={idx} className={cn(media.length > 1 && s.double)}>
 						<Image data={m.responsiveImage} className={s.image} />
 					</figure>
-					: <video
+					: <VideoPlayer
 						key={idx}
-						src={m.video?.streamingUrl}
+						data={m as FileField}
 						className={cn(media.length > 1 && s.double)}
-						controls
 					/>
 			)}
 		</section>
