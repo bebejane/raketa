@@ -15,7 +15,7 @@ export type Props = {
 export default function Menu({ allProjects }: Props) {
 
   const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState], shallow);
-  console.log(layoutState)
+
   return (
     <ul id="projects" className={s.projects}>
       {allProjects?.map(({ id, slug, title, description, collaborationWith, externalLink, year, visualPresentation }) =>
