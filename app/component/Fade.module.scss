@@ -2,14 +2,14 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: calc(2.5 * var(--gutter));
+  width: calc(3 * var(--gutter));
   height: 100%;
 
   .gradient {
     position: absolute;
-    right: calc(0.8 * var(--gutter));
+    right: calc(0.9 * var(--gutter));
     top: 0;
-    width: calc(1.8 * var(--gutter));
+    width: calc(2.1 * var(--gutter));
     height: 100%;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
   }
@@ -18,7 +18,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: calc(0.8 * var(--gutter));
+    width: calc(0.9 * var(--gutter));
     height: 100%;
     background-color: white;
   }

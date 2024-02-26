@@ -3,6 +3,10 @@
     display: flex;
     margin-bottom: 7rem;
     scroll-margin-top: (--top-margin);
+
+    @include mq($until: desktop) {
+      flex-direction: column;
+    }
   }
 
   .meta {
@@ -10,8 +14,14 @@
     position: sticky;
     top: var(--top-margin);
     align-self: flex-start;
-    min-width: calc(var(--grid-unit) + var(--gutter));
     transition: var(--column-transition);
+    @include mq($from: desktop) {
+      min-width: calc(var(--grid-unit) + var(--gutter));
+    }
+    @include mq($until: desktop) {
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
 
     .wrapper {
       min-width: calc((var(--grid-unit) * 1) - var(--gutter));
@@ -29,7 +39,9 @@
   }
 
   .images {
-    max-width: calc((var(--grid-unit) * 7) + (var(--gutter) * 6));
+    @include mq($from: desktop) {
+      max-width: calc((var(--grid-unit) * 7) + (var(--gutter) * 6));
+    }
 
     section {
       margin-bottom: var(--gutter-small);
@@ -45,13 +57,21 @@
   }
 
   .text {
-    margin-left: var(--gutter);
     overflow-x: hidden;
     position: sticky;
     top: var(--top-margin);
     align-self: flex-start;
-    max-width: calc(var(--grid-unit) + var(--gutter));
     transition: var(--column-transition);
+
+    @include mq($from: desktop) {
+      margin-left: var(--gutter);
+      max-width: calc(var(--grid-unit) + var(--gutter));
+    }
+
+    @include mq($until: desktop) {
+      background-color: var(--white);
+      padding-top: var(--line-height);
+    }
 
     p {
       min-width: calc((var(--grid-unit) * 3) + (var(--gutter) * 3));

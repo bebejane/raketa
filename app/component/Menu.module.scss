@@ -1,4 +1,7 @@
 .menu {
+  @include mq($until: desktop) {
+    display: none;
+  }
   overflow-x: hidden;
   position: sticky;
   position: sticky;

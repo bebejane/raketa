@@ -6,7 +6,6 @@
 	--outer-margin: 0;
 	--space: 2rem;
 	--space-small: 1rem;
-	--gutter: 1.5rem;
 	--navbar-height: 80px;
 	--background: var(--white);
 	--foreground: var(--black);
@@ -22,11 +21,8 @@
 	--z-logo: 2000;
 
 	@include mq($until: desktop) {
-		--outer-margin: 0;
-	}
-
-	@include mq($from: very-wide) {
-		--outer-margin: 0;
+		--gutter: 1.5rem;
+		--gutter-small: 1rem;
 	}
 }
 

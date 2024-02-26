@@ -19,7 +19,9 @@
 
 .article {
   margin: var(--gutter);
-  margin-right: 0;
+  @include mq($from: desktop) {
+    margin-right: 0;
+  }
   display: flex;
 
   nav {
