@@ -31,7 +31,7 @@ export default async function Start() {
         </div>
       </header>
       <article className={cn(s.start)}>
-        <nav>PROJECTS
+        <nav><h2>PROJECTS</h2>
           <ul>
             <li>Volna.stream</li>
             <li>Inverted spacest</li>
