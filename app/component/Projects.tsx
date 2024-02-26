@@ -15,25 +15,27 @@ export type Props = {
 export default function Menu({ allProjects }: Props) {
 
   const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState], shallow);
-
+  console.log(layoutState)
   return (
     <ul id="projects" className={s.projects}>
       {allProjects?.map(({ id, slug, title, description, collaborationWith, externalLink, year, visualPresentation }) =>
         <li id={slug} key={id}>
           <div
-            className={cn(s.meta, layoutState === 'meta' && s.active, layoutState === 'project' && s.hidden)}
+            className={cn(s.meta, layoutState === 'meta' ? s.active : layoutState !== 'default' ? s.hidden : null)}
             onMouseEnter={() => setLayoutState('meta')}
           >
             <div className={s.wrapper}>
               <h2>{title}</h2>
               {year}
               <h3>{collaborationWith}</h3>
-              {externalLink && <a href={externalLink}>{externalLink}</a>}
+              {externalLink &&
+                <a href={externalLink}>{externalLink}</a>
+              }
             </div>
             <Fade hide={layoutState === 'meta'} />
           </div>
           <div
-            className={cn(s.images, layoutState === 'project' && s.active)}
+            className={cn(s.images, layoutState === 'meta' ? s.active : layoutState !== 'default' ? s.hidden : null)}
             onMouseEnter={() => setLayoutState('default')}
           >
             {visualPresentation.map((block, idx) =>
@@ -41,7 +43,7 @@ export default function Menu({ allProjects }: Props) {
             )}
           </div>
           <div
-            className={cn(s.text, layoutState === 'project' && s.active, (layoutState === 'menu' || layoutState === 'meta' && s.hidden))}
+            className={cn(s.text, layoutState === 'project' ? s.active : layoutState !== 'default' ? s.hidden : null)}
             onMouseEnter={() => setLayoutState('project')}
           >
             <Content content={description} />
@@ -49,7 +51,8 @@ export default function Menu({ allProjects }: Props) {
           </div>
 
         </li>
-      )}
-    </ul>
+      )
+      }
+    </ul >
   )
 }
