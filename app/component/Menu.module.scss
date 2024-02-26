@@ -4,14 +4,10 @@
   position: sticky;
   top: var(--top-margin);
   align-self: flex-start;
+  max-width: calc(var(--grid-unit) + var(--gutter));
 
   ul {
     min-width: calc((var(--grid-unit) * 2) + (var(--gutter) * 1));
-  }
-
-
-  &.default {
-    max-width: calc(var(--grid-unit) + var(--gutter));
   }
 
   &.menu {
