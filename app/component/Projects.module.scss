@@ -9,16 +9,21 @@
     position: sticky;
     top: var(--top-margin);
     align-self: flex-start;
-
     min-width: calc(var(--grid-unit) + var(--gutter));
 
-    &.active {
-      min-width: calc((var(--grid-unit) * 2) + var(--gutter));
-    }
 
     .wrapper {
       min-width: calc((var(--grid-unit) * 1) - var(--gutter));
     }
+
+    &.active {
+      min-width: calc((var(--grid-unit) * 2) + var(--gutter));
+
+      .wrapper {
+        min-width: calc((var(--grid-unit) * 2) - var(--gutter));
+      }
+    }
+
   }
 
   .images {

@@ -22,8 +22,8 @@ export default function Menu({ allProjects }: Props) {
         <li id={slug} key={id}>
           {layoutState !== 'project' &&
             <div
-              className={cn(s.meta, layoutState === 'title' && s.active)}
-              onMouseEnter={() => setLayoutState('title')}
+              className={cn(s.meta, layoutState === 'meta' && s.active)}
+              onMouseEnter={() => setLayoutState('meta')}
               onMouseLeave={() => setLayoutState('default')}
             >
               <div className={s.wrapper}>
@@ -32,7 +32,7 @@ export default function Menu({ allProjects }: Props) {
                 <h3>{collaborationWith}</h3>
                 {externalLink && <a href={externalLink}>{externalLink}</a>}
               </div>
-              <Fade hide={layoutState === 'title'} />
+              <Fade hide={layoutState === 'meta'} />
             </div>
           }
           <div className={s.images} onMouseEnter={() => setLayoutState('default')}>
@@ -40,7 +40,7 @@ export default function Menu({ allProjects }: Props) {
               <Block key={idx} data={block} components={BlockComponets} />
             )}
           </div>
-          {layoutState !== 'menu' && layoutState !== 'title' &&
+          {layoutState !== 'menu' && layoutState !== 'meta' &&
             <div
               className={cn(s.text, layoutState === 'project' && s.active)}
               onMouseEnter={() => setLayoutState('project')}

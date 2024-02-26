@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { shallow } from 'zustand/shallow';
 
-export type LayoutState = 'default' | 'menu' | 'title' | 'project'
+export type LayoutState = 'default' | 'menu' | 'meta' | 'project'
 
 export interface StoreState {
   layoutState: LayoutState
