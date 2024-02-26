@@ -9,8 +9,6 @@ export async function POST(req: Request) {
   return await revalidate(req, async (payload, revalidate) => {
 
     const { api_key, entity: { id, attributes } } = payload;
-
-
     const paths: string[] = []
     const tags: string[] = [id]
 

@@ -10,24 +10,28 @@ type Routes = {
 }
 
 type Route = {
-  path: ((item: any, locale: string) => Promise<string | null>)
+  path: ((item: any) => Promise<string | null>)
   typeName: string
 }
 
 const routes: Routes = {
   "start": {
     typeName: "StartRecord",
-    path: async (item, locale) => '/'
+    path: async (item) => '/'
   },
   "about": {
     typeName: "AboutRecord",
-    path: async (item, locale) => '/'
+    path: async (item) => '/'
+  },
+  "project": {
+    typeName: "ProjectRecord",
+    path: async (item) => `/`
   }
 }
 
-export const buildRoute = async (model: string, item?: any, locale?: string): Promise<string> => {
+export const buildRoute = async (model: string, item?: any): Promise<string> => {
   if (!routes[model]) throw new Error(`Invalid model: ${model}`)
-  return `${await routes[model].path(item, locale)}`
+  return `${await routes[model].path(item)} `
 }
 
 export const recordToRoute = async (record: any): Promise<string> => {
