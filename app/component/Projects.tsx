@@ -39,15 +39,14 @@ export default function Menu({ allProjects }: Props) {
               <Block key={idx} data={block} components={BlockComponets} />
             )}
           </div>
-          {layoutState !== 'menu' && layoutState !== 'meta' &&
-            <div
-              className={cn(s.text, layoutState === 'project' && s.active)}
-              onMouseEnter={() => setLayoutState('project')}
-            >
-              <Content content={description} />
-              <Fade hide={layoutState === 'project'} />
-            </div>
-          }
+          <div
+            className={cn(s.text, layoutState === 'project' && s.active, (layoutState === 'menu' || layoutState === 'meta' && s.hidden))}
+            onMouseEnter={() => setLayoutState('project')}
+          >
+            <Content content={description} />
+            <Fade hide={layoutState === 'project'} />
+          </div>
+
         </li>
       )}
     </ul>

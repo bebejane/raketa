@@ -5,6 +5,7 @@
   top: var(--top-margin);
   align-self: flex-start;
   max-width: calc(var(--grid-unit) + var(--gutter));
+  transition: var(--column-transition);
 
   ul {
     min-width: calc((var(--grid-unit) * 1) + var(--gutter));
@@ -18,6 +19,6 @@
   }
 
   &.inactive {
-    display: none;
+    max-width: 0;
   }
 }
