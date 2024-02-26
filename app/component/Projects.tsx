@@ -20,21 +20,22 @@ export default function Menu({ allProjects }: Props) {
     <ul id="projects" className={s.projects}>
       {allProjects?.map(({ id, slug, title, description, collaborationWith, externalLink, year, visualPresentation }) =>
         <li id={slug} key={id}>
-          {layoutState !== 'project' &&
-            <div
-              className={cn(s.meta, layoutState === 'meta' && s.active)}
-              onMouseEnter={() => setLayoutState('meta')}
-            >
-              <div className={s.wrapper}>
-                <h2>{title}</h2>
-                {year}
-                <h3>{collaborationWith}</h3>
-                {externalLink && <a href={externalLink}>{externalLink}</a>}
-              </div>
-              <Fade hide={layoutState === 'meta'} />
+          <div
+            className={cn(s.meta, layoutState === 'meta' && s.active, layoutState === 'project' && s.hidden)}
+            onMouseEnter={() => setLayoutState('meta')}
+          >
+            <div className={s.wrapper}>
+              <h2>{title}</h2>
+              {year}
+              <h3>{collaborationWith}</h3>
+              {externalLink && <a href={externalLink}>{externalLink}</a>}
             </div>
-          }
-          <div className={s.images} onMouseEnter={() => setLayoutState('default')}>
+            <Fade hide={layoutState === 'meta'} />
+          </div>
+          <div
+            className={cn(s.images, layoutState === 'project' && s.active)}
+            onMouseEnter={() => setLayoutState('default')}
+          >
             {visualPresentation.map((block, idx) =>
               <Block key={idx} data={block} components={BlockComponets} />
             )}

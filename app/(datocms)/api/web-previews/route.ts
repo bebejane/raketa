@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
 
     const path = await buildRoute(itemType.attributes.api_key, item.attributes)
     if (!path) return null
-    return item.slug ? `${path}#${item.slug}` : path
+    return item.atrributes?.slug ? `${path}#${item.attributes.slug}` : path
   })
 }
 
