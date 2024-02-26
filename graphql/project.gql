@@ -27,4 +27,5 @@ fragment ProjectFragment on ProjectRecord {
 	}
 	collaborationWith
 	externalLink
+	slug
 }
