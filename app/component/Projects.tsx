@@ -17,7 +17,7 @@ export default function Menu({ allProjects }: Props) {
   const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState], shallow);
 
   return (
-    <ul className={s.projects}>
+    <ul id="projects" className={s.projects}>
       {allProjects?.map(({ id, slug, title, description, collaborationWith, externalLink, year, visualPresentation }) =>
         <li id={slug} key={id}>
           {layoutState !== 'project' &&

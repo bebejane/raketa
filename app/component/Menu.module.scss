@@ -9,6 +9,12 @@
 
   ul {
     min-width: calc((var(--grid-unit) * 1) + var(--gutter));
+
+    li {
+      &.selected {
+        font-weight: bold;
+      }
+    }
   }
 
   &.active {
