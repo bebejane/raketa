@@ -3,7 +3,6 @@
 import s from './Menu.module.scss';
 import cn from 'classnames';
 import { useStore, shallow } from '@lib/store';
-import { useScrollInfo } from 'next-dato-utils/hooks';
 import Fade from './Fade';
 import { useEffect, useState } from 'react';
 
@@ -13,7 +12,6 @@ export type Props = {
 
 export default function Menu({ allProjects }: Props) {
 
-  const { scrolledPosition } = useScrollInfo();
   const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState], shallow);
   const [currentProject, setCurrentProject] = useState<string | null>(null);
 
@@ -21,21 +19,18 @@ export default function Menu({ allProjects }: Props) {
     const projects = document.getElementById('projects');
     if (!projects) return
     const projectElements = projects.getElementsByTagName('li');
-    const projectPositions = Array.from(projectElements).map((el) => {
-      const rect = el.getBoundingClientRect();
-      return {
-        id: el.id,
-        top: rect.top,
-        bottom: rect.bottom,
-        height: rect.height,
-      }
-    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setCurrentProject(entry.target.id);
+        }
+      });
+    }, { threshold: 0.1 });
 
-    const currentProject = projectPositions.find((el) => el.top < 0 && el.bottom > 0) ?? projectPositions[0];
-    setCurrentProject(currentProject.id);
+    Array.from(projectElements).forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
 
-  }, [scrolledPosition])
-
+  }, [])
 
   return (
     <nav
