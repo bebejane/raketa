@@ -7,11 +7,11 @@
   max-width: calc(var(--grid-unit) + var(--gutter));
 
   ul {
-    min-width: calc((var(--grid-unit) * 2) + (var(--gutter) * 1));
+    min-width: calc((var(--grid-unit) * 1) + (var(--gutter) * 1));
   }
 
-  &.menu {
-    max-width: calc(2 * (var(--grid-unit) + var(--gutter)));
+  &.active {
+    max-width: calc((2 * var(--grid-unit)) + var(--gutter));
   }
 
   &.project {

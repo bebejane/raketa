@@ -5,7 +5,6 @@
   }
 
   .meta {
-
     overflow: hidden;
     position: sticky;
     top: var(--top-margin);
@@ -13,8 +12,8 @@
 
     min-width: calc(var(--grid-unit) + var(--gutter));
 
-    &.title {
-      min-width: calc((var(--grid-unit) * 2) - var(--gutter));
+    &.active {
+      min-width: calc((var(--grid-unit) * 2) + var(--gutter));
     }
 
     .wrapper {
@@ -39,12 +38,13 @@
   }
 
   .text {
-    max-width: calc(var(--grid-unit) + var(--gutter));
+
     margin-left: var(--gutter);
     overflow-x: hidden;
     position: sticky;
     top: var(--top-margin);
     align-self: flex-start;
+    max-width: calc(var(--grid-unit) + var(--gutter));
 
     p {
       min-width: calc((var(--grid-unit) * 3) + (var(--gutter) * 3));

@@ -22,7 +22,7 @@ export default function Menu({ allProjects }: Props) {
         <li id={slug} key={id}>
           {layoutState !== 'project' &&
             <div
-              className={cn(s.meta, s[layoutState])}
+              className={cn(s.meta, layoutState === 'title' && s.active)}
               onMouseEnter={() => setLayoutState('title')}
               onMouseLeave={() => setLayoutState('default')}
             >
