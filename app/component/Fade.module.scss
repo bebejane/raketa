@@ -5,6 +5,10 @@
   width: calc(3 * var(--gutter));
   height: 100%;
 
+  @include mq($until: desktop) {
+    display: none;
+  }
+
   .gradient {
     position: absolute;
     right: calc(0.9 * var(--gutter));

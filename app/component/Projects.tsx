@@ -28,7 +28,7 @@ export default function Menu({ allProjects }: Props) {
               <h2>{title}</h2>
               {year}
               <h3>{collaborationWith}</h3>
-              {externalLink && <a href={externalLink}>{externalLink}</a>}
+              {externalLink && <a href={externalLink}>Visit ›</a>}
             </div>
             <Fade hide={layoutState === 'meta'} />
           </div>

@@ -42,6 +42,9 @@
     @include mq($from: desktop) {
       max-width: calc((var(--grid-unit) * 7) + (var(--gutter) * 6));
     }
+    @include mq($until: desktop) {
+      background-color: var(--white);
+    }
 
     section {
       margin-bottom: var(--gutter-small);
