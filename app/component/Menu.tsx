@@ -1,5 +1,9 @@
 'use client'
-import s from '../page.module.scss';
+
+import s from './Menu.module.scss';
+import cn from 'classnames';
+import { useStore, shallow } from '@lib/store';
+import Fade from './Fade';
 
 export type Props = {
   allProjects: StartQuery['allProjects']
@@ -7,18 +11,21 @@ export type Props = {
 
 export default function Menu({ allProjects }: Props) {
 
+  const [menuState, setMenuState] = useStore(state => [state.menuState, state.setMenuState], shallow);
+
   return (
-    <nav>
+    <nav
+      className={cn(s.menu, s[menuState])}
+      onMouseEnter={() => setMenuState('active')}
+      onMouseLeave={() => setMenuState('inactive')}
+    >
       <h2>PROJECTS</h2>
       <ul>
-        {allProjects.map(({ id, title }, idx) =>
-          <li key={id}>{title}</li>
+        {allProjects.map(({ id, title, slug }, idx) =>
+          <li key={id}><a href={`#${slug}`}>{title}</a></li>
         )}
       </ul>
-      <div className={s.fade}>
-        <div className={s.gradient}></div>
-        <div className={s.solid}></div>
-      </div>
-    </nav>
+      <Fade />
+    </nav >
   )
 }

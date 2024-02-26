@@ -1,6 +1,5 @@
 
 import s from './page.module.scss'
-import cn from 'classnames';
 import { apiQuery } from 'next-dato-utils/api';
 import { DraftMode } from 'next-dato-utils/components';
 import { notFound } from 'next/navigation';
@@ -26,7 +25,7 @@ export default async function Start() {
         </div>
         <About about={about} />
       </header>
-      <article className={cn(s.start)}>
+      <article className={s.article}>
         <Menu allProjects={allProjects} />
         <Projects allProjects={allProjects} />
       </article>

@@ -1,0 +1,24 @@
+.menu {
+
+  overflow-x: hidden;
+  position: sticky;
+  position: sticky;
+  top: var(--top-margin);
+  align-self: flex-start;
+
+  ul {
+    min-width: calc((var(--grid-unit) * 2) + (var(--gutter) * 1));
+  }
+
+  &.active {
+    max-width: calc(2 * (var(--grid-unit) + var(--gutter)));
+  }
+
+  &.inactive {
+    max-width: calc(var(--grid-unit) + var(--gutter));
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
