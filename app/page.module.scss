@@ -70,6 +70,13 @@
 
       section {
         margin-bottom: var(--gutter);
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        figure div {
+          max-width: none !important;
+        }
       }
     }
 
@@ -83,6 +90,9 @@
 
       p {
         min-width: calc((var(--grid-unit) * 3) + (var(--gutter) * 3));
+        &:last-of-type {
+          margin-bottom: 0;
+        }
       }
     }
   }
