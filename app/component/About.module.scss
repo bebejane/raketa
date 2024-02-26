@@ -1,8 +1,12 @@
 .about {
-  margin-top: -1rem;
   padding-left: calc(var(--grid-unit) * 2 + (2 * var(--gutter)));
-  padding-right: calc(var(--grid-unit) + (1 * var(--gutter)));
   margin-bottom: 4rem;
+  margin-top: 1rem;
+
+  @include mq($from: desktop) {
+    margin-top: -1rem;
+    padding-right: calc(var(--grid-unit) + (1 * var(--gutter)));
+  }
 
   .readMore {
     cursor: pointer;
