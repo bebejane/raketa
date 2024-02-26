@@ -12,7 +12,10 @@
 
     li {
       &.selected {
-        font-weight: bold;
+        //text-indent: 0.7em;
+        &:before {
+          content: "• ";
+        }
       }
     }
   }
@@ -21,7 +24,6 @@
     ul {
       max-width: calc((2 * var(--grid-unit)) + var(--gutter));
     }
-
   }
 
   &.inactive {

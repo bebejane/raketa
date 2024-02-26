@@ -23,10 +23,8 @@
 
       .wrapper {
         min-width: calc((var(--grid-unit) * 2) - var(--gutter));
-
       }
     }
-
   }
 
   .images {
@@ -46,7 +44,6 @@
   }
 
   .text {
-
     margin-left: var(--gutter);
     overflow-x: hidden;
     position: sticky;
@@ -57,6 +54,7 @@
 
     p {
       min-width: calc((var(--grid-unit) * 3) + (var(--gutter) * 3));
+      padding-right: var(--gutter);
 
       &:last-of-type {
         margin-bottom: 0;
