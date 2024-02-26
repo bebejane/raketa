@@ -1,1 +1,106 @@
-.start {}
+.header {
+  padding: var(--gutter);
+
+  .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .intro {
+    padding-top: 1rem;
+    padding-left: calc(var(--grid-unit) * 2 + (2 * var(--gutter)));
+    padding-right: calc(var(--grid-unit) + (1 * var(--gutter)));
+  }
+}
+
+.start {
+  margin: var(--gutter);
+  margin-right: 0;
+  display: flex;
+
+  nav {
+    max-width: calc(var(--grid-unit) + var(--gutter));
+    overflow-x: hidden;
+    position: sticky;
+    position: sticky;
+    top: var(--gutter);
+    align-self: flex-start;
+    ul {
+      min-width: calc((var(--grid-unit) * 2) + (var(--gutter) * 1));
+      margin-top: 1rem;
+    }
+
+    &:hover {
+      max-width: calc(2 * (var(--grid-unit) + var(--gutter)));
+    }
+  }
+
+  .projects {
+    li {
+      display: flex;
+      margin-bottom: 5rem;
+    }
+
+    .meta {
+      max-width: calc(var(--grid-unit) + var(--gutter));
+      min-width: calc(var(--grid-unit) + var(--gutter));
+
+      overflow: hidden;
+      position: sticky;
+      top: var(--gutter);
+      align-self: flex-start;
+
+      .wrapper {
+        min-width: calc((var(--grid-unit) * 2) + (var(--gutter) * 1));
+      }
+    }
+
+    .images {
+      max-width: calc((var(--grid-unit) * 7) + (var(--gutter) * 6));
+
+      section {
+        margin-bottom: var(--gutter);
+      }
+    }
+
+    .text {
+      max-width: calc(var(--grid-unit) + var(--gutter));
+      margin-left: var(--gutter);
+      overflow-x: hidden;
+      position: sticky;
+      top: var(--gutter);
+      align-self: flex-start;
+
+      p {
+        min-width: calc((var(--grid-unit) * 3) + (var(--gutter) * 3));
+      }
+    }
+  }
+
+  .fade {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: calc(2.5 * var(--gutter));
+    height: 100%;
+
+    .gradient {
+      position: absolute;
+      right: calc(0.8 * var(--gutter));
+      top: 0;
+      width: calc(1.8 * var(--gutter));
+      height: 100%;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+    }
+
+    .solid {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: calc(0.8 * var(--gutter));
+      height: 100%;
+      background-color: white;
+    }
+  }
+}
