@@ -11,13 +11,13 @@ export type Props = {
 
 export default function Menu({ allProjects }: Props) {
 
-  const [menuState, setMenuState] = useStore(state => [state.menuState, state.setMenuState], shallow);
+  const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState], shallow);
 
   return (
     <nav
-      className={cn(s.menu, s[menuState])}
-      onMouseEnter={() => setMenuState('active')}
-      onMouseLeave={() => setMenuState('inactive')}
+      className={cn(s.menu, s[layoutState])}
+      onMouseEnter={() => setLayoutState('menu')}
+      onMouseLeave={() => setLayoutState('default')}
     >
       <h2>PROJECTS</h2>
       <ul>
@@ -25,7 +25,7 @@ export default function Menu({ allProjects }: Props) {
           <li key={id}><a href={`#${slug}`}>{title}</a></li>
         )}
       </ul>
-      <Fade />
+      <Fade hide={layoutState === 'menu'} />
     </nav >
   )
 }

@@ -1,5 +1,4 @@
 .menu {
-
   overflow-x: hidden;
   position: sticky;
   position: sticky;
@@ -10,15 +9,16 @@
     min-width: calc((var(--grid-unit) * 2) + (var(--gutter) * 1));
   }
 
-  &.active {
-    max-width: calc(2 * (var(--grid-unit) + var(--gutter)));
-  }
 
-  &.inactive {
+  &.default {
     max-width: calc(var(--grid-unit) + var(--gutter));
   }
 
-  &.hidden {
+  &.menu {
+    max-width: calc(2 * (var(--grid-unit) + var(--gutter)));
+  }
+
+  &.project {
     display: none;
   }
 }
