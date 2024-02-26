@@ -17,7 +17,7 @@ export default function About({ about }: Props) {
       <Content content={about.intro} className={s.text} />
       {showExtended && <Content content={about.extended} />}
       <span className={s.readMore} onClick={() => setShowExtended(!showExtended)}>
-        {!showExtended ? 'Read more ›' : 'Read less'}
+        {!showExtended ? 'Read more ›' : '‹ Read less'}
       </span>
     </div>
   )
