@@ -7,10 +7,8 @@ export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
   return await webPreviews(req, async ({ item, itemType, locale }) => {
-
     const path = await buildRoute(itemType.attributes.api_key, item.attributes)
-    if (!path) return null
-    return item.atrributes?.slug ? `${path}#${item.attributes.slug}` : path
+    return path ?? null
   })
 }
 
