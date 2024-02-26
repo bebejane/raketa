@@ -1,7 +1,7 @@
 .projects {
   li {
     display: flex;
-    margin-bottom: 5rem;
+    margin-bottom: 7rem;
     scroll-margin-top: (--top-margin);
   }
 
@@ -16,6 +16,7 @@
     .wrapper {
       min-width: calc((var(--grid-unit) * 1) - var(--gutter));
       transition: var(--column-transition);
+      padding-right: var(--gutter);
     }
 
     &.active {
@@ -31,7 +32,7 @@
     max-width: calc((var(--grid-unit) * 7) + (var(--gutter) * 6));
 
     section {
-      margin-bottom: var(--gutter);
+      margin-bottom: var(--gutter-small);
 
       &:last-of-type {
         margin-bottom: 0;
