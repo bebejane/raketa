@@ -23,6 +23,7 @@
     @include mq($until: desktop) {
       margin-bottom: 1.5rem;
       width: 100%;
+      z-index: -1;
     }
 
     .wrapper {
