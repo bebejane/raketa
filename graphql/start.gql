@@ -1,0 +1,20 @@
+query Start($first: IntType = 100, $skip: IntType = 0) {
+	about {
+		intro {
+			blocks
+			links
+			value
+		}
+		extended {
+			blocks
+			links
+			value
+		}
+	}
+	allProjects(first: $first, skip: $skip, orderBy: position_ASC) {
+		...ProjectFragment
+	}
+	_allProjectsMeta {
+		count
+	}
+}

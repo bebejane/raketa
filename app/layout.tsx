@@ -6,6 +6,7 @@ import { Icon } from "next/dist/lib/metadata/types/metadata-types";
 
 import NavBar from '@components/NavBar';
 import Footer from '@components/Footer';
+import React from 'react';
 
 export type LayoutProps = {
   children: React.ReactNode
