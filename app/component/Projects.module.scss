@@ -14,6 +14,7 @@
     position: sticky;
     top: var(--top-margin);
     align-self: flex-start;
+
     @include mq($from: desktop) {
       transition: var(--column-transition);
       min-height: calc(100vh - var(--top-margin));
@@ -29,6 +30,8 @@
     .wrapper {
       overflow: hidden;
       min-width: calc((var(--grid-unit) * 1) - var(--gutter));
+      max-width: calc((var(--grid-unit) * 1) - var(--gutter));
+
       transition: var(--column-transition);
       padding-right: var(--gutter);
       text-overflow: ellipsis;
@@ -52,6 +55,7 @@
     @include mq($from: desktop) {
       max-width: calc((var(--grid-unit) * 7) + (var(--gutter) * 6));
     }
+
     @include mq($until: desktop) {
       background-color: var(--white);
     }

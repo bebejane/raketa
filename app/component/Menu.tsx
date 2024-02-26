@@ -4,7 +4,9 @@ import s from './Menu.module.scss';
 import cn from 'classnames';
 import { useStore, shallow } from '@lib/store';
 import Fade from './Fade';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import useIsDesktop from '../../lib/hooks/useIsDesktop';
+import { set } from 'zod';
 
 export type Props = {
   allProjects: StartQuery['allProjects']
@@ -12,8 +14,12 @@ export type Props = {
 
 export default function Menu({ allProjects }: Props) {
 
-  const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState], shallow);
+  const [layoutState, setLayoutState, setDesktop] = useStore(state => [state.layoutState, state.setLayoutState, state.setDesktop], shallow);
   const [currentProject, setCurrentProject] = useState<string | null>(null);
+  const isScrolling = useRef(false);
+
+  const desktop = useIsDesktop();
+  useEffect(() => { setDesktop(desktop); }, [desktop])
 
   useEffect(() => {
     const projects = document.getElementById('projects');
@@ -21,7 +27,7 @@ export default function Menu({ allProjects }: Props) {
     const projectElements = projects.getElementsByTagName('li');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !isScrolling.current) {
           setCurrentProject(entry.target.id);
         }
       });
@@ -32,6 +38,14 @@ export default function Menu({ allProjects }: Props) {
 
   }, [])
 
+  const handleClick = (e: React.MouseEvent) => {
+    const href = (e.target as HTMLAnchorElement).href;
+    const id = href.split('#')[1];
+    isScrolling.current = true;
+    setCurrentProject(id);
+    setTimeout(() => isScrolling.current = false, 1000);
+  }
+
   return (
     <nav
       className={cn(s.menu, layoutState === 'menu' && s.active, layoutState === 'project' && s.inactive)}
@@ -40,7 +54,9 @@ export default function Menu({ allProjects }: Props) {
       <h2>PROJECTS</h2>
       <ul>
         {allProjects.map(({ id, title, slug }, idx) =>
-          <li key={id} className={cn(currentProject === slug && s.selected)}><a href={`#${slug}`}>{title}</a></li>
+          <li key={id} className={cn(currentProject === slug && s.selected)}>
+            <a href={`#${slug}`} onClick={handleClick}>{title}</a>
+          </li>
         )}
       </ul>
       <Fade hide={layoutState === 'menu'} />

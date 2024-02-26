@@ -2,6 +2,7 @@
   @include mq($until: desktop) {
     display: none;
   }
+
   overflow-x: hidden;
   position: sticky;
   top: var(--top-margin);
