@@ -17,7 +17,6 @@ export default function Menu({ allProjects }: Props) {
     <nav
       className={cn(s.menu, layoutState === 'menu' && s.active, layoutState === 'project' && s.inactive)}
       onMouseEnter={() => setLayoutState('menu')}
-      onMouseLeave={() => setLayoutState('default')}
     >
       <h2>PROJECTS</h2>
       <ul>

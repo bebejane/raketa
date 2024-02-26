@@ -24,7 +24,6 @@ export default function Menu({ allProjects }: Props) {
             <div
               className={cn(s.meta, layoutState === 'meta' && s.active)}
               onMouseEnter={() => setLayoutState('meta')}
-              onMouseLeave={() => setLayoutState('default')}
             >
               <div className={s.wrapper}>
                 <h2>{title}</h2>
@@ -44,7 +43,6 @@ export default function Menu({ allProjects }: Props) {
             <div
               className={cn(s.text, layoutState === 'project' && s.active)}
               onMouseEnter={() => setLayoutState('project')}
-              onMouseLeave={() => setLayoutState('default')}
             >
               <Content content={description} />
               <Fade hide={layoutState === 'project'} />
