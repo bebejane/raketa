@@ -29,7 +29,7 @@ export default async function Start() {
         <Menu allProjects={allProjects} />
         <Projects allProjects={allProjects} />
       </article>
-      <DraftMode url={draftUrl} tag={'project'} />
+      <DraftMode url={draftUrl} tag={['project', 'about']} />
     </>
   )
 }
