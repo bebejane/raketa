@@ -17,7 +17,7 @@
 	--gutter-small: 1rem;
 	--grid-unit: calc((100vw - (11 * var(--gutter))) / 10);
 
-	--column-transition: max-width 0.3s ease-in-out, min-width 0.3s ease-in-out;
+	--column-transition: none; //max-width 0.3s ease-in-out, min-width 0.3s ease-in-out;
 	--z-navbar: 1000;
 	--z-logo: 2000;
 
