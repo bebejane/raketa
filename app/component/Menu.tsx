@@ -5,8 +5,7 @@ import cn from 'classnames';
 import { useStore, shallow } from '@lib/store';
 import Fade from './Fade';
 import { useEffect, useRef, useState } from 'react';
-import useIsDesktop from '../../lib/hooks/useIsDesktop';
-import { set } from 'zod';
+import useIsDesktop from '@lib/hooks/useIsDesktop';
 
 export type Props = {
   allProjects: StartQuery['allProjects']

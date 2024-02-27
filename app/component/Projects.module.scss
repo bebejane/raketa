@@ -13,6 +13,7 @@
     overflow: hidden;
     position: sticky;
     top: var(--top-margin);
+    left: 0;
     align-self: flex-start;
 
     @include mq($from: desktop) {
@@ -34,7 +35,6 @@
 
       transition: var(--column-transition);
       padding-right: var(--gutter);
-      text-overflow: ellipsis;
       white-space: nowrap;
     }
 
@@ -48,6 +48,11 @@
 
     &.hidden {
       min-width: 0;
+      max-width: 0;
+
+      .wrapper {
+        padding: 0;
+      }
     }
   }
 

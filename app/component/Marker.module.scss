@@ -1,0 +1,30 @@
+.marker {
+  position: sticky;
+  top: var(--top-margin);
+  left: 0;
+  width: 100%;
+  z-index: 1;
+
+  .mark {
+    height: 1px;
+    width: 10px;
+    background-color: var(--black);
+    transition: margin-left 0.15s ease-in-out;
+
+    &.default {
+      display: none;
+    }
+
+    &.menu {
+      margin-left: calc(var(--gutter));
+    }
+
+    &.meta {
+      margin-left: calc(calc(2 * var(--grid-unit)) - var(--gutter));
+    }
+
+    &.project {
+      margin-left: calc(calc(9 * var(--grid-unit) + calc(1 * var(--gutter))));
+    }
+  }
+}

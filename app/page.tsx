@@ -7,6 +7,7 @@ import { StartDocument } from '../graphql';
 import About from './component/About';
 import Menu from './component/Menu';
 import Projects from './component/Projects';
+import Marker from './component/Marker';
 
 export default async function Start() {
 
@@ -25,6 +26,7 @@ export default async function Start() {
         </div>
         <About about={about} />
       </header>
+      <Marker />
       <article className={s.article}>
         <Menu allProjects={allProjects} />
         <Projects allProjects={allProjects} />

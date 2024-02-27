@@ -19,9 +19,11 @@
 
 .article {
   margin: var(--gutter);
+
   @include mq($from: desktop) {
     margin-right: 0;
   }
+
   display: flex;
 
   nav {
@@ -31,6 +33,7 @@
     position: sticky;
     top: var(--top-margin);
     align-self: flex-start;
+
     ul {
       min-width: calc((var(--grid-unit) * 2) + (var(--gutter) * 1));
     }
@@ -65,6 +68,7 @@
 
       section {
         margin-bottom: var(--gutter);
+
         &:last-of-type {
           margin-bottom: 0;
         }
@@ -85,6 +89,7 @@
 
       p {
         min-width: calc((var(--grid-unit) * 3) + (var(--gutter) * 3));
+
         &:last-of-type {
           margin-bottom: 0;
         }
