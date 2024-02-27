@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import s from './About.module.scss';
 import Content from "@components/Content";
-import { useStore, shallow } from '@lib/store';
+import { useStore } from '@lib/store';
 
 export type Props = {
   about: StartQuery['about']
@@ -12,7 +12,7 @@ export type Props = {
 export default function About({ about }: Props) {
 
   const [showExtended, setShowExtended] = useState(false);
-  const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState], shallow);
+  const [setLayoutState] = useStore(state => [state.setLayoutState]);
 
   return (
     <div className={s.about} onMouseEnter={() => setLayoutState('default')}>

@@ -5,7 +5,7 @@ import s from './Projects.module.scss';
 import cn from 'classnames'
 import Content from "@components/Content";
 import * as BlockComponets from '@components/blocks';
-import { useStore, shallow } from '@lib/store';
+import { useStore } from '@lib/store';
 import Fade from './Fade';
 
 export type Props = {
@@ -14,7 +14,7 @@ export type Props = {
 
 export default function Menu({ allProjects }: Props) {
 
-  const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState], shallow);
+  const [layoutState, setLayoutState] = useStore(state => [state.layoutState, state.setLayoutState]);
 
   return (
 

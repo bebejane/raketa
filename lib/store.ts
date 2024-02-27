@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { shallow } from 'zustand/shallow';
-import useIsDesktop from "./hooks/useIsDesktop";
 
 export type LayoutState = 'default' | 'menu' | 'meta' | 'project'
 

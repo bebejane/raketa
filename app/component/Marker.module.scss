@@ -1,6 +1,6 @@
 .marker {
   position: sticky;
-  top: var(--top-margin);
+  top: calc(var(--top-margin) - 1em);
   left: 0;
   width: 100%;
   z-index: 1;

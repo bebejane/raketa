@@ -2,7 +2,7 @@
 
 import s from './Menu.module.scss';
 import cn from 'classnames';
-import { useStore, shallow } from '@lib/store';
+import { useStore } from '@lib/store';
 import Fade from './Fade';
 import { useEffect, useRef, useState } from 'react';
 import useIsDesktop from '@lib/hooks/useIsDesktop';
@@ -13,7 +13,7 @@ export type Props = {
 
 export default function Menu({ allProjects }: Props) {
 
-  const [layoutState, setLayoutState, setDesktop] = useStore(state => [state.layoutState, state.setLayoutState, state.setDesktop], shallow);
+  const [layoutState, setLayoutState, setDesktop] = useStore(state => [state.layoutState, state.setLayoutState, state.setDesktop]);
   const [currentProject, setCurrentProject] = useState<string | null>(null);
   const isScrolling = useRef(false);
 

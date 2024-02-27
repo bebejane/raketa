@@ -4,6 +4,7 @@
   top: 0;
   width: calc(3 * var(--gutter));
   height: 100%;
+  z-index: 2;
 
   @include mq($until: desktop) {
     display: none;
@@ -15,6 +16,7 @@
     top: 0;
     width: calc(2.1 * var(--gutter));
     height: 100%;
+    z-index: 3;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
   }
 
@@ -25,5 +27,6 @@
     width: calc(0.9 * var(--gutter));
     height: 100%;
     background-color: white;
+    z-index: 2;
   }
 }
