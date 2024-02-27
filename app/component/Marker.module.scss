@@ -6,6 +6,10 @@
   z-index: 1;
   height: 1px;
 
+  @include mq($until: desktop) {
+    display: none;
+  }
+
   .mark {
     height: 1px;
     width: 10px;
