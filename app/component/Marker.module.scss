@@ -1,6 +1,6 @@
 .marker {
   position: sticky;
-  top: calc(var(--top-margin) - 1em);
+  top: calc(var(--top-margin) - 2em);
   left: 0;
   width: 100%;
   z-index: 1;
@@ -9,8 +9,11 @@
   .mark {
     height: 1px;
     width: 10px;
-    background-color: var(--black);
+    //background-color: var(--black);
     transition: margin-left 0.15s ease-in-out;
+    &:after {
+      content: "•";
+    }
 
     &.default {
       display: none;
