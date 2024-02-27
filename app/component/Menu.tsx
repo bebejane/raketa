@@ -47,7 +47,7 @@ export default function Menu({ allProjects }: Props) {
 
   return (
     <nav
-      className={cn(s.menu, layoutState === 'menu' && s.active, layoutState === 'project' && s.inactive)}
+      className={cn(s.menu, layoutState === 'menu' && s.active, layoutState === 'info' && s.inactive)}
       onMouseEnter={() => setLayoutState('menu')}
     >
       <h2>PROJECTS</h2>

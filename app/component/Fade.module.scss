@@ -10,6 +10,10 @@
     display: none;
   }
 
+  &.hide {
+    opacity: 0;
+  }
+
   .gradient {
     position: absolute;
     right: calc(0.9 * var(--gutter));

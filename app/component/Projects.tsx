@@ -22,7 +22,7 @@ export default function Menu({ allProjects }: Props) {
       {allProjects?.map(({ id, slug, title, description, collaborationWith, externalLink, year, visualPresentation }) =>
         <li id={slug} key={id}>
           <div
-            className={cn(s.meta, layoutState === 'meta' ? s.active : layoutState === 'project' ? s.hidden : null)}
+            className={cn(s.meta, layoutState === 'meta' ? s.active : layoutState === 'info' ? s.hidden : null)}
             onMouseEnter={() => setLayoutState('meta')}
           >
             <div className={s.wrapper}>
@@ -34,7 +34,7 @@ export default function Menu({ allProjects }: Props) {
             <Fade hide={layoutState === 'meta'} />
           </div>
           <div
-            className={cn(s.images, layoutState === 'meta' ? s.active : layoutState !== 'default' ? s.hidden : null)}
+            className={cn(s.images, layoutState === 'default' ? s.active : null)}
             onMouseEnter={() => setLayoutState('default')}
           >
             {visualPresentation.map((block, idx) =>
@@ -42,11 +42,11 @@ export default function Menu({ allProjects }: Props) {
             )}
           </div>
           <div
-            className={cn(s.text, layoutState === 'project' ? s.active : layoutState !== 'default' ? s.hidden : null)}
-            onMouseEnter={() => setLayoutState('project')}
+            className={cn(s.info, layoutState === 'info' ? s.active : layoutState !== 'default' ? s.hidden : null)}
+            onMouseEnter={() => setLayoutState('info')}
           >
             <Content content={description} />
-            <Fade hide={layoutState === 'project'} />
+            <Fade hide={layoutState === 'info'} />
           </div>
 
         </li>

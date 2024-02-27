@@ -24,7 +24,7 @@
       margin-left: calc((2 * var(--gutter)) + var(--grid-unit));
     }
 
-    &.project {
+    &.info {
       margin-left: calc(calc(7 * var(--grid-unit) + calc(8 * var(--gutter))));
     }
   }

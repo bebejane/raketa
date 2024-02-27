@@ -51,12 +51,13 @@
       max-width: 0;
 
       .wrapper {
-        padding: 0;
+        //padding: 0;
       }
     }
   }
 
   .images {
+
     @include mq($from: desktop) {
       max-width: calc((var(--grid-unit) * 7) + (var(--gutter) * 6));
     }
@@ -78,10 +79,11 @@
     }
   }
 
-  .text {
+  .info {
     overflow-x: hidden;
     position: sticky;
     top: var(--top-margin);
+    left: 0;
     align-self: flex-start;
 
     @include mq($from: desktop) {
