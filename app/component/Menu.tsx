@@ -21,8 +21,11 @@ export default function Menu({ allProjects }: Props) {
   useEffect(() => { setDesktop(desktop); }, [desktop])
 
   useEffect(() => {
+
     const projects = document.getElementById('projects');
+
     if (!projects) return
+
     const projectElements = projects.getElementsByTagName('li');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -33,7 +36,11 @@ export default function Menu({ allProjects }: Props) {
     }, { threshold: 0.1 });
 
     Array.from(projectElements).forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    return () => {
+      Array.from(projectElements).forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+    };
 
   }, [])
 
