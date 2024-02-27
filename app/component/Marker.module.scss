@@ -21,11 +21,11 @@
     }
 
     &.meta {
-      margin-left: calc(calc(2 * var(--grid-unit)) - var(--gutter));
+      margin-left: calc((2 * var(--gutter)) + var(--grid-unit));
     }
 
     &.project {
-      margin-left: calc(calc(9 * var(--grid-unit) + calc(1 * var(--gutter))));
+      margin-left: calc(calc(7 * var(--grid-unit) + calc(8 * var(--gutter))));
     }
   }
 }
