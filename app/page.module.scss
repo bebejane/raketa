@@ -1,6 +1,15 @@
 .header {
   padding: var(--gutter);
 
+  @include mq($until: desktop) {
+    background-color: var(--black);
+    color: white;
+
+    a {
+      color: var(--white);
+    }
+  }
+
   .top {
     display: flex;
     flex-direction: row;

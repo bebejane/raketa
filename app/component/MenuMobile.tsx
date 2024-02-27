@@ -16,7 +16,7 @@ export default function MenuMobile({ allProjects }: Props) {
 
   return (
     <nav className={cn(s.menuMobile)}>
-      <h2 onClick={() => setOpen(!open)}>PROJECTS</h2>
+      <h2 onClick={() => setOpen(!open)}>PROJECTS <span>></span></h2>
       {open &&
         <ul>
           {allProjects.map(({ id, title, slug }, idx) =>

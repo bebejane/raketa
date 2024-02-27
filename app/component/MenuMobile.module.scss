@@ -1,6 +1,14 @@
 .menuMobile {
   width: 100%;
-  margin-left: var(--gutter);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  background-color: var(--white);
 
   @include mq($from: desktop) {
     display: none;
@@ -8,13 +16,17 @@
 
   h2 {
     margin: 0;
+    display: flex;
+    justify-content: space-between;
   }
 
   ul {
     list-style: none;
+    padding-bottom: 0.5rem;
 
     li {
       white-space: nowrap;
+      padding-top: 0.8rem;
 
       &.selected,
       &:hover {
