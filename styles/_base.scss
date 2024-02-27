@@ -21,7 +21,7 @@
 	--z-logo: 2000;
 
 	@include mq($until: desktop) {
-		--gutter: 1.5rem;
+		--gutter: 1.2rem;
 		--gutter-small: 0.8rem;
 	}
 }
@@ -66,7 +66,8 @@ button {
 	border: 0;
 
 	@include mq($from: desktop) {
-		&:hover {}
+		&:hover {
+		}
 	}
 
 	&[disabled] {
@@ -103,7 +104,8 @@ select {
 	font-family: $nav-font;
 	background-color: var(--background);
 
-	&:focus {}
+	&:focus {
+	}
 
 	&::placeholder {
 		color: var(--orange);
