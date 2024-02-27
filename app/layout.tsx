@@ -3,10 +3,9 @@ import { apiQuery } from 'next-dato-utils/api';
 import { GlobalDocument } from "@graphql";
 import { Metadata } from "next/types";
 import { Icon } from "next/dist/lib/metadata/types/metadata-types";
-
+import React from 'react';
 import NavBar from '@components/NavBar';
 import Footer from '@components/Footer';
-import React from 'react';
 
 export type LayoutProps = {
   children: React.ReactNode
@@ -29,10 +28,10 @@ export default async function RootLayout({ children }: LayoutProps) {
   );
 }
 
-
 export async function generateMetadata() {
 
   const { site: { globalSeo, faviconMetaTags } } = await apiQuery<GlobalQuery, GlobalQueryVariables>(GlobalDocument, {
+    tags: ['site']
   });
 
   return {
