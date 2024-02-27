@@ -1,10 +1,3 @@
-import { buildClient } from "@datocms/cma-client-browser"
-
-const client = buildClient({
-  apiToken: process.env.DATOCMS_API_TOKEN,
-  environment: process.env.DATOCMS_ENVIRONMENT
-})
-
 type Routes = {
   [key: string]: Route
 }
