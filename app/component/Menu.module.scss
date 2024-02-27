@@ -12,14 +12,13 @@
   transition: var(--column-transition);
 
   ul {
+    transition: var(--column-transition);
     min-width: calc((var(--grid-unit) * 1) + var(--gutter));
 
     li {
 
       &.selected,
       &:hover {
-
-        //text-indent: 0.7em;
         &:before {
           content: "• ";
         }
