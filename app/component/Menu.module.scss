@@ -15,10 +15,8 @@
     min-width: calc((var(--grid-unit) * 1) + var(--gutter));
 
     li {
-
       &.selected,
       &:hover {
-
         //text-indent: 0.7em;
         &:before {
           content: "• ";
@@ -29,7 +27,7 @@
 
   &.active {
     ul {
-      max-width: calc((2 * var(--grid-unit)) + var(--gutter));
+      min-width: calc((var(--grid-unit) * 2) + (2 * var(--gutter)));
     }
   }
 

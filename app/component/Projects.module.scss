@@ -20,6 +20,7 @@
       transition: var(--column-transition);
       min-height: calc(100vh - var(--top-margin));
       min-width: calc(var(--grid-unit) + var(--gutter));
+      max-width: calc(var(--grid-unit) + var(--gutter));
     }
 
     @include mq($until: desktop) {
@@ -32,17 +33,16 @@
       overflow: hidden;
       //min-width: calc((var(--grid-unit) * 1) - var(--gutter));
       //max-width: calc((var(--grid-unit) * 1) - var(--gutter));
-
       transition: var(--column-transition);
       padding-right: var(--gutter);
       white-space: nowrap;
     }
 
     &.active {
-      min-width: calc((var(--grid-unit) * 2) + var(--gutter));
+      min-width: calc((var(--grid-unit) * 2) + (2 * var(--gutter)));
 
       .wrapper {
-        min-width: calc((var(--grid-unit) * 2) - var(--gutter));
+        //min-width: calc((var(--grid-unit) * 2) - var(--gutter));
       }
     }
 
