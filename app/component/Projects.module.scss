@@ -30,8 +30,8 @@
 
     .wrapper {
       overflow: hidden;
-      min-width: calc((var(--grid-unit) * 1) - var(--gutter));
-      max-width: calc((var(--grid-unit) * 1) - var(--gutter));
+      //min-width: calc((var(--grid-unit) * 1) - var(--gutter));
+      //max-width: calc((var(--grid-unit) * 1) - var(--gutter));
 
       transition: var(--column-transition);
       padding-right: var(--gutter);
