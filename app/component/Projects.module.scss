@@ -1,11 +1,13 @@
 .projects {
   li {
     display: flex;
-    margin-bottom: 7rem;
     scroll-margin-top: (--top-margin);
-
     @include mq($until: desktop) {
       flex-direction: column;
+    }
+    margin-bottom: 7rem;
+    &:last-of-type {
+      margin-bottom: 2rem;
     }
   }
 
