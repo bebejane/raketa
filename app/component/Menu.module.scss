@@ -1,7 +1,4 @@
 .menu {
-  @include mq($until: desktop) {
-    display: none;
-  }
 
   overflow-x: hidden;
   position: sticky;
@@ -11,11 +8,16 @@
   min-height: calc(100vh - var(--top-margin));
   transition: var(--column-transition);
 
+  @include mq($until: desktop) {
+    display: none;
+  }
+
   ul {
     transition: var(--column-transition);
     min-width: calc((var(--grid-unit) * 1) + var(--gutter));
 
     li {
+      white-space: nowrap;
 
       &.selected,
       &:hover {

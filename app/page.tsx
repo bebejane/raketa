@@ -8,6 +8,7 @@ import About from './component/About';
 import Menu from './component/Menu';
 import Projects from './component/Projects';
 import Marker from './component/Marker';
+import MenuMobile from './component/MenuMobile';
 
 export default async function Start() {
 
@@ -26,6 +27,8 @@ export default async function Start() {
         </div>
         <About about={about} />
       </header>
+
+      <MenuMobile allProjects={allProjects} />
       <Marker />
       <article className={s.article}>
         <Menu allProjects={allProjects} />

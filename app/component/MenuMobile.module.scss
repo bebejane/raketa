@@ -1,0 +1,27 @@
+.menuMobile {
+  width: 100%;
+  margin-left: var(--gutter);
+
+  @include mq($from: desktop) {
+    display: none;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      white-space: nowrap;
+
+      &.selected,
+      &:hover {
+        &:before {
+          content: "• ";
+        }
+      }
+    }
+  }
+}
