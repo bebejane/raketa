@@ -18,9 +18,27 @@
     margin: 0;
     display: flex;
     justify-content: space-between;
+
+    span {
+      display: inline-block;
+      transition: transform 0.2s ease-out;
+
+      &.open {
+        transform: rotate(90deg);
+
+      }
+    }
   }
 
   ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+
+    &.show {
+      max-height: 1000px;
+    }
+
     list-style: none;
     padding-bottom: 0.5rem;
 
