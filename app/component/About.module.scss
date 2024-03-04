@@ -8,6 +8,12 @@
     padding-right: calc(var(--grid-unit) + (1 * var(--gutter)));
   }
 
+  .extendedWrap {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease;
+  }
+
   .readMore {
     cursor: pointer;
   }

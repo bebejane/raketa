@@ -23,11 +23,10 @@ export default async function Start() {
       <header className={s.header}>
         <div className={s.top}>
           <h1>RAKETA</h1>
-          <a>Contact</a>
+          <a href="mailto:raketa@raketa.nu">Contact</a>
         </div>
         <About about={about} />
       </header>
-
       <MenuMobile allProjects={allProjects} />
       <Marker />
       <article className={s.article}>

@@ -14,7 +14,6 @@ export default function Content({ content, className }: Props) {
 
   return (
     <StructuredContent
-      //blocks={blocks}
       className={className}
       content={content}
     />
