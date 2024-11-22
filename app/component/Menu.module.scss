@@ -1,5 +1,4 @@
 .menu {
-
   overflow-x: hidden;
   position: sticky;
   top: var(--top-margin);
@@ -38,5 +37,9 @@
 
   &.inactive {
     max-width: 0;
+  }
+
+  .cv {
+    padding-top: 1em;
   }
 }

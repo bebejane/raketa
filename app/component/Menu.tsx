@@ -65,6 +65,7 @@ export default function Menu({ allProjects }: Props) {
           </li>
         )}
       </ul>
+      <h2 className={s.cv}><a href="https://www.datocms-assets.com/120284/1732278459-cv.pdf">CV</a></h2>
       <Fade hide={layoutState === 'menu'} />
     </nav >
   )

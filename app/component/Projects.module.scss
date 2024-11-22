@@ -1,5 +1,4 @@
 .projects {
-
   li {
     display: flex;
     scroll-margin-top: var(--top-margin);
@@ -55,6 +54,7 @@
   .images {
     @include mq($from: desktop) {
       max-width: calc((var(--grid-unit) * 7) + (var(--gutter) * 6));
+      width: 100%;
     }
 
     @include mq($until: desktop) {
