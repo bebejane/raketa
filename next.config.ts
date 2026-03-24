@@ -4,18 +4,14 @@ import path from 'path';
 const nextConfig: NextConfig = {
 	sassOptions: {
 		includePaths: ['./components', './app'],
-		silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin'],
 		prependData: `
-			@use "sass:math";
-    	@import "./styles/mediaqueries";
-			@import "./styles/fonts";
+			@use "sass:math";			
+    	@use "@/styles/mediaqueries" as *;
   	`,
 	},
+	typedRoutes: true,
 	typescript: {
 		ignoreBuildErrors: true,
-	},
-	eslint: {
-		ignoreDuringBuilds: true,
 	},
 	webpack: (config) => {
 		config.module.exprContextCritical = false;
@@ -26,14 +22,33 @@ const nextConfig: NextConfig = {
 		resolveAlias: {
 			'datocms.config': './datocms.config.ts',
 		},
-	},
-	logging: {
-		fetches: {
-			fullUrl: true,
+		rules: {
+			'*.svg': {
+				loaders: ['turbopack-inline-svg-loader'],
+				condition: {
+					content: /^[\s\S]{0,4000}$/, // <-- Inline SVGs smaller than ~4Kb (since Next.js v16)
+				},
+				as: '*.js',
+			},
 		},
+	},
+	devIndicators: false,
+	logging: false,
+	experimental: {
+		prefetchInlining: true,
+		rootParams: true,
 	},
 	async headers() {
 		return [
+			{
+				source: '/:path*',
+				headers: [
+					{
+						key: 'Content-Security-Policy',
+						value: `frame-ancestors 'self' https://plugins-cdn.datocms.com/ ${process.env.NEXT_PUBLIC_DATOCMS_BASE_EDITING_URL} ${process.env.NEXT_PUBLIC_SITE_URL}`,
+					},
+				],
+			},
 			{
 				source: '/api/web-previews',
 				headers: [
@@ -51,7 +66,7 @@ const nextConfig: NextConfig = {
 				source: '/api/backup',
 				headers: [
 					{ key: 'Access-Control-Allow-Credentials', value: 'true' },
-					{ key: 'Access-Control-Allow-Origin', value: '*' }, // replace this your actual origin
+					{ key: 'Access-Control-Allow-Origin', value: '*' },
 					{ key: 'Access-Control-Allow-Methods', value: 'POST,OPTIONS' },
 					{
 						key: 'Access-Control-Allow-Headers',

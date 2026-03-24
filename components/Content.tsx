@@ -1,21 +1,12 @@
-import { StructuredContent } from 'next-dato-utils/components'
-//import * as blocks from './blocks'
+import { StructuredContent } from 'next-dato-utils/components';
 
 export type Props = {
-  content: any
-  className?: string
-}
-
+	content: any;
+	className?: string;
+};
 
 export default function Content({ content, className }: Props) {
+	if (!content) return null;
 
-  if (!content)
-    return null
-
-  return (
-    <StructuredContent
-      className={className}
-      content={content}
-    />
-  )
+	return <StructuredContent className={className} content={content} />;
 }

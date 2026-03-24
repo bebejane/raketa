@@ -6,6 +6,7 @@ import { Icon } from 'next/dist/lib/metadata/types/metadata-types';
 import React from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import { DraftModeContentLink } from 'next-dato-utils/components';
 
 export type LayoutProps = {
 	children: React.ReactNode;
@@ -20,6 +21,7 @@ export default async function RootLayout({ children }: LayoutProps) {
 				<NavBar />
 				<main>{children}</main>
 				<Footer />
+				<DraftModeContentLink />
 			</body>
 		</html>
 	);

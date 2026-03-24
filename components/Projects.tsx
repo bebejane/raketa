@@ -25,16 +25,37 @@ export default function Menu({ allProjects }: Props) {
 	useEffect(() => {
 		// Set scroll margin for mobile menu
 		if (desktop) return setScrollMarginMobile(null);
-		setTimeout(() => setScrollMarginMobile(document.getElementById('mobile-menu')?.scrollHeight ?? 0), 300);
+		setTimeout(
+			() => setScrollMarginMobile(document.getElementById('mobile-menu')?.scrollHeight ?? 0),
+			300,
+		);
 	}, [desktop, showMobileMenu]);
 
 	return (
 		<ul id='projects' className={s.projects}>
 			{allProjects?.map(
-				({ id, slug, title, description, collaborationWith, externalLink, year, visualPresentation }) => (
-					<li id={slug} key={id} style={{ scrollMarginTop: scrollMarginMobile || undefined }}>
+				({
+					id,
+					slug,
+					title,
+					description,
+					collaborationWith,
+					externalLink,
+					year,
+					visualPresentation,
+				}) => (
+					<li
+						id={slug ?? ''}
+						key={id}
+						style={{ scrollMarginTop: scrollMarginMobile || undefined }}
+						//data-datocms-content-link-boundary={true}
+						data-datocms-content-link-source={title}
+					>
 						<div
-							className={cn(s.meta, layoutState === 'meta' ? s.active : layoutState === 'info' ? s.hidden : null)}
+							className={cn(
+								s.meta,
+								layoutState === 'meta' ? s.active : layoutState === 'info' ? s.hidden : null,
+							)}
 							onMouseEnter={() => setLayoutState('meta')}
 						>
 							<div className={s.wrapper}>
@@ -54,14 +75,17 @@ export default function Menu({ allProjects }: Props) {
 							))}
 						</div>
 						<div
-							className={cn(s.info, layoutState === 'info' ? s.active : layoutState !== 'default' ? s.hidden : null)}
+							className={cn(
+								s.info,
+								layoutState === 'info' ? s.active : layoutState !== 'default' ? s.hidden : null,
+							)}
 							onMouseEnter={() => setLayoutState('info')}
 						>
 							<Content content={description} />
 							<Fade hide={layoutState === 'info'} />
 						</div>
 					</li>
-				)
+				),
 			)}
 		</ul>
 	);

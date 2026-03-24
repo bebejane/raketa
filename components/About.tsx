@@ -1,8 +1,7 @@
 'use client';
 
-import { use, useEffect, useRef, useState } from 'react';
 import s from './About.module.scss';
-import cn from 'classnames';
+import { useEffect, useRef, useState } from 'react';
 import Content from '@/components/Content';
 import { useStore } from '@/lib/store';
 
@@ -15,6 +14,7 @@ export default function About({ about }: Props) {
 	const [extendedHeight, setExtendedHeight] = useState(0);
 	const [setLayoutState] = useStore((state) => [state.setLayoutState]);
 	const extendedRef = useRef<HTMLDivElement>(null);
+
 	useEffect(() => {
 		if (extendedRef.current) {
 			setExtendedHeight(extendedRef.current.scrollHeight);
@@ -22,11 +22,20 @@ export default function About({ about }: Props) {
 	}, [extendedRef.current]);
 
 	return (
-		<div className={s.about} onMouseEnter={() => setLayoutState('default')}>
-			<Content content={about.intro} className={s.text} />
-
-			<div className={cn(s.extendedWrap)} ref={extendedRef} style={{ maxHeight: showExtended ? extendedHeight : 0 }}>
-				<Content content={about.extended} />
+		<div
+			className={s.about}
+			onMouseEnter={() => setLayoutState('default')}
+			data-datocms-content-link-group={true}
+			data-datocms-content-link-url={about?._editingUrl}
+		>
+			<Content content={about?.intro} className={s.text} />
+			<div
+				ref={extendedRef}
+				className={s.extendedWrap}
+				data-datocms-content-link-boundary={true}
+				style={{ maxHeight: showExtended ? extendedHeight : 0 }}
+			>
+				<Content content={about?.extended} />
 			</div>
 
 			<span className={s.readMore} onClick={() => setShowExtended(!showExtended)}>

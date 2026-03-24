@@ -8,6 +8,7 @@ query AllProjects($first: IntType = 100, $skip: IntType = 0) {
 }
 
 fragment ProjectFragment on ProjectRecord {
+	_editingUrl
 	id
 	title
 	year
@@ -18,6 +19,7 @@ fragment ProjectFragment on ProjectRecord {
 	}
 	position
 	visualPresentation {
+		_editingUrl
 		__typename
 		id
 		media {

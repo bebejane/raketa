@@ -1,3 +1,6 @@
+@use 'fonts';
+@use 'mediaqueries' as *;
+
 :root {
 	--black: #161616;
 	--white: #ffffff;
@@ -20,6 +23,10 @@
 	--z-navbar: 1000;
 	--z-logo: 2000;
 
+	--body-font: 'GCourier', Times, Serif;
+	--headline-font: 'RomWide', Helvetica, Sans-Serif;
+	--nav-font: 'GCourier', Times, Serif;
+
 	@include mq($until: desktop) {
 		--gutter: 1.2rem;
 		--gutter-small: 0.8rem;
@@ -32,9 +39,9 @@ body {
 	line-height: 1em;
 	color: var(--foreground);
 	background-color: var(--background);
-	font-family: $body-font;
+	font-family: var(--body-font);
 	-webkit-font-smoothing: antialiased;
-	font-feature-settings: "liga", "kern";
+	font-feature-settings: 'liga', 'kern';
 }
 
 html {
@@ -101,7 +108,7 @@ select {
 	margin-bottom: 1rem;
 	padding: 0.5em;
 	padding-left: 0.75em;
-	font-family: $nav-font;
+	font-family: var(--nav-font);
 	background-color: var(--background);
 
 	&:focus {
