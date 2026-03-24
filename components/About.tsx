@@ -2,6 +2,7 @@
 
 import s from './About.module.scss';
 import { useEffect, useRef, useState } from 'react';
+import { haveStructuredContent } from 'next-dato-utils/utils';
 import Content from '@/components/Content';
 import { useStore } from '@/lib/store';
 
@@ -38,9 +39,11 @@ export default function About({ about }: Props) {
 				<Content content={about?.extended} />
 			</div>
 
-			<span className={s.readMore} onClick={() => setShowExtended(!showExtended)}>
-				{!showExtended ? 'Read more ›' : '‹ Read less'}
-			</span>
+			{haveStructuredContent(about?.extended) && (
+				<span className={s.readMore} onClick={() => setShowExtended(!showExtended)}>
+					{!showExtended ? 'Read more ›' : '‹ Read less'}
+				</span>
+			)}
 		</div>
 	);
 }
